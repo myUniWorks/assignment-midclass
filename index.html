@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+    </head>
+    <body>
+        <div class="form-wrapp" id="form-wrapp">
+            <input placeholder="名前を入力してください" name="name">
+        </div>
+        <div class="pokemon-elements">
+            <p id="pokemon-name"></p>
+            <img src="" id="pokemon-image" alt="ポケモンの画像">
+        </div>
+        <script>
+            // const customOptions = {
+            //     protocol: "https",
+            //     hostName: "localhost:443",
+            //     versionPath: "/api/v2/",
+            //     cache: true,
+            //     timeout: 5 * 1000, // 5s
+            //     cacheImages: true
+            // }
+
+            // const P = new Pokedex.Pokedex(customOptions)
+            const P = new Pokedex.Pokedex()
+
+            const input = document.querySelector('input');
+            const log = document.getElementById('pokemon-name');
+            const img = document.getElementById('pokemon-image');
+
+            input.addEventListener('input', updateValue);
+
+            function updateValue(e) {
+                if(e){
+                    P.getPokemonByName(e.target.value)
+                    .then(function(response) {
+                        console.log("get pokemon:", response)
+                        img.setAttribute('src', response.sprites.back_default);
+                        log.textContent = response.name;
+                    })
+                }else {
+                    console.log("no input")
+                }
+            }
+        </script>
+    </body>
+</html>

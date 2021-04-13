@@ -2,7 +2,6 @@
 [OpenStreerMap5.htm](https://github.com/k8m-git/programinng-class/blob/master/OpenStreerMap5.htm)
 
 
----
 ## APIのお試し
 
 ### 参考

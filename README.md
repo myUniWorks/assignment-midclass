@@ -1,3 +1,7 @@
+## オンデマンド講義-地図利用(2) - JavaScriptの基礎(課題提出有）の課題
+[OpenStreerMap5.htm](https://github.com/k8m-git/programinng-class/blob/master/OpenStreerMap5.htm)
+
+
 ---
 ## APIのお試し
 

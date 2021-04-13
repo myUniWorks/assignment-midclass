@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Street Map with Leaflet - 1</title>
+  <meta charset="utf-8" />
+  <!-- スタイルシート -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <!-- leafletのライブラリ挿入 -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">
+</script>
+  <!-- ここからプログラム -->
+  <script>
+    let mymap;
+    const lat1 = 35.7089403, lng1 = 139.721231;
+    const lat2 = 35.785655, lng2 = 139.399916;
+    let lat_now = lat1, lng_now = lng1;
+    let lat_diff = (lat2 - lat1)/50;
+    let lng_diff = (lng2 -lng1)/50;
+    function start() {
+      // 地図生成, map_areaへマッピング, setViewで緯度・経度、ズーム設定
+      mymap = L.map('map_area').setView([lat_now, lng_now], 15);
+      // open street mapへのリンク
+      var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+      // tileLayerメソッドでURLの地図を表示、attributionは右下のメッセージ文, openStreetMapのズーム最大値を設定
+      // addtoで先ほど生成したmymapに反映
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                 {attribution: 'Map data &copy;' + mapLink,
+                  maxZoom: 18 }).addTo(mymap);
+    }
+    function move() {
+      // mymap.panTo([lat2, lng2]);
+      iterateID = window.setInterval(() => {
+        lat_now+=lat_diff;
+        lng_now+=lng_diff;
+
+        mymap.panTo([lat_now, lng_now]);
+
+        if(lat_now > lat2 && lng_now > lng2) {
+          clearInterval(iterateID);
+          alert("ARRIVED")
+        }
+      }, 1000);
+    }
+    </script>
+</head>
+<!-- 開いた時にstart関数、リサイズした時にstart関数を実行 -->
+<body onload="start()"　onresize="start()">
+  <!-- map_areaという名前の領域を800x400で用意 -->
+   <div id="map_area" style="width:600px; height: 600px;"></div>
+   <A HREF="#" onClick="move()">移動</A>
+   <A HREF="#" onClick="clearInterval(iterateID)">ストップ</A>
+</body>
+</html>

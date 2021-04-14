@@ -39,6 +39,7 @@
 
         mymap.panTo([lat_now, lng_now]);
 
+        // lat_now > lat2 だけでもOK
         if(lat_now > lat2 && lng_now > lng2) {
           clearInterval(iterateID);
           alert("ARRIVED")

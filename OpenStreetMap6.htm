@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Street Map with Leaflet - 1</title>
+  <meta charset="utf-8" />
+  <!-- スタイルシート -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <!-- leafletのライブラリ挿入 -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">
+</script>
+  <script>
+  let mymap, polyline1
+    function start() {
+      mymap = L.map('map_area').setView([35.7089403,139.721231], 17);
+      var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                 {attribution: 'Map data &copy;' + mapLink,
+                  maxZoom: 18 }).addTo(mymap);
+
+   	    /* ここにプログラムを追加 */
+   	    /*
+   	    var circleMaker = L.circle([35.7089403,139.721231], {
+   	      color: 'green',
+   	      fillColor: '#00FF00',
+   	      fillOpacity: 0.2,
+   	      radius: 100
+   	    }).addTo(mymap);
+   	    
+   	    window.setTimeout( function(){
+   	     console.log("delete");
+   	     circleMaker.removeFrom(mymap);
+   	    }, 1000)
+   	    */
+   	    
+   	    /*
+   	    var marker1 = L.marker([35.7089403,139.721231], {draggable: true}).addTo(mymap);
+   	    var popupobject = L.popup().setContent('<img src="https://www.waseda.jp/culture/assets/uploads/2020/04/Zoom_Auditorium02.jpg" width="300"></img>');
+   	    marker1.bindPopup(popupobject);
+   	    */
+   	    
+   	    /*
+   	    var latlngs = [
+   	      [35.709233, 139.72152],
+   	      [35.710318, 139.717724],
+   	      [35.708048, 139.720128],
+   	      [35.709233, 139.72152],
+   	    ];
+   	    var polyline1 = L.polyline(latlngs, {color: "#00FF00", fillColor:"#0000FF", fill: true}).addTo(mymap);
+   	    */
+   	    
+   	    mymap.on('click', onClickFunction);
+   	    polyline1 = L.polyline([], {color: "#008000", weight: 2}).addTo(mymap);
+   	    
+   	    // polyline1.mouseout().removeFrom(mymap);
+   	    mymap.on('mouseout', onMouseOut)
+    }
+    function onClickFunction(e){
+    	polyline1.addLatLng(e.latlng);
+    }
+    function onMouseOut(e){
+    	 polyline1.removeFrom(mymap);
+    } 
+    </script>
+</head>
+<body onload="start()"　onresize="start()">
+   <div id="map_area" style="width:400px; height: 400px;"></div>
+</body>
+</html>

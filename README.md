@@ -2,14 +2,14 @@
 
 ### OpenStreetMap関連
 
-第二回対面
-[OpenStreerMap5.htm]()
+第二回対面授業  
+[OpenStreerMap5.htm](https://github.com/k8m-git/programinng-class/blob/master/OpenStreetMap/OpenStreerMap5.htm)
 
-第三回対面授業
-[OpenStreetMap/OpenStreetMap6.htm]()
+第三回対面授業  
+[OpenStreetMap/OpenStreetMap6.htm](https://github.com/k8m-git/programinng-class/blob/master/OpenStreetMap/OpenStreetMap6.htm)
 
 ### オンデマンド講義-オブジェクト指向とDOM
-[OnDemand3]()
+[OnDemand3](https://github.com/k8m-git/programinng-class/tree/master/OnDemand3)
 
 ## APIのお試し
 

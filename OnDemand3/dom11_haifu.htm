@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<script>
+  function continuousChange() {
+   var node = document.getElementsByTagName("strong")[0];
+   //strongノードを取得し、ハンドル名nodeを付与
+   var i = 1;
+   console.log("get node is:", node)
+
+   window.setInterval(function() {
+    node.removeChild(node.firstChild);
+    if (i++%2 == 1)
+    node.appendChild(document.createTextNode("大変"));
+    else 
+    node.appendChild(document.createTextNode("簡単"));
+   }, 500);
+  }
+  
+</script>
+</head>
+<body onload="continuousChange()">
+ <p id=“story”>
+     コンピュータは<strong>簡単</strong>です。
+ </p>
+</body>
+</html>

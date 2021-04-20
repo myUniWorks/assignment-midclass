@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript">
+  var text2, query2;
+  function matching() {
+    var t = document.FORM1.text1.value ;
+    var q = document.FORM1.query1.value ;
+    var result = t.indexOf(q) + 1;  
+
+    console.log(result)
+	if (result >= 1) 
+		alert("Found at position "+result+".");
+	else
+	    alert("I could not find!");
+  }
+</script>
+</head>
+<body>
+
+<form name="FORM1" action="#">
+テキスト：
+  <INPUT name="text1" value="" size=100 /><BR>
+検索語：
+  <INPUT name="query1" value="" size=20 /><BR>
+ <input type="reset" value="取り消し" />
+ <input type="button" value="検索" onclick="matching();" />
+</form>
+</body>
+</html>

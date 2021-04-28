@@ -11,6 +11,9 @@
 ### オンデマンド講義-オブジェクト指向とDOM
 [OnDemand3](https://github.com/k8m-git/programinng-class/tree/master/OnDemand3)
 
+### グループ課題
+[ボタンゲーム](https://github.com/k8m-git/programinng-class/blob/master/Group/image_search00-1.htm)
+
 ## APIのお試し
 
 ### 参考
